@@ -78,7 +78,7 @@ jobs:
           file: Dockerfile-github
           push: true
           labels: ${{ steps.meta.outputs.labels }}
-          tags: hendisantika/movie-service:${{ github.run_number }}
+          tags: bangsis/movie-service:${{ github.run_number }}
           build-args: |
             GIT_VERSION_TAG=${{ env.RELEASE_VERSION }}
             GIT_COMMIT_MESSAGE=${{ github.event.head_commit.message }}
