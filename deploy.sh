@@ -5,7 +5,7 @@ cat .env
 set +a
 source .env
 start=$(date +"%s")
-docker login --username $DOCKERHUB_USERNAME --password $DOCKERHUB_TOKEN
+#docker login --username $DOCKERHUB_USERNAME --password $DOCKERHUB_TOKEN
 docker pull $CONTAINER_REPOSITORY:$IMAGE_TAG
 
 if [ "$(docker ps -qa -f name=$CONTAINER_NAME)" ]; then
