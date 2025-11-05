@@ -1,11 +1,11 @@
 #!/bin/bash
 ssh -p "${SERVER_PORT}" "${SERVER_USERNAME}"@"${SERVER_HOST}" -i key.txt -t -t -o StrictHostKeyChecking=no << 'ENDSSH'
-cd ~/ecommerce
+cd ~/movie-wawan
 cat .env
 set +a
 source .env
 start=$(date +"%s")
-echo $YOUR_PERSONAL_ACCESS_TOKEN | docker login --username $DOCKER_USERNAME --password-stdin
+docker login --username $DOCKERHUB_USERNAME --password $DOCKERHUB_TOKEN
 docker pull $CONTAINER_REPOSITORY:$IMAGE_TAG
 
 if [ "$(docker ps -qa -f name=$CONTAINER_NAME)" ]; then
